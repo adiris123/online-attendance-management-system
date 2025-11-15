@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Online Attendance Management System</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="auth-body">
+    <div class="auth-container">
+        <div class="auth-card">
+            <h1 class="auth-title">Attendance Pro</h1>
+            <p class="auth-subtitle">Sign in to continue</p>
+            <form id="loginForm" class="form">
+                <label class="form-label" for="role">Role</label>
+                <select id="role" class="form-input">
+                    <option value="admin">Admin</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="student">Student</option>
+                </select>
+
+                <label class="form-label" for="username">Username</label>
+                <input id="username" class="form-input" type="text" placeholder="Enter username" required />
+
+                <label class="form-label" for="password">Password</label>
+                <input id="password" class="form-input" type="password" placeholder="Enter password" required />
+
+                <button type="submit" class="btn primary full-width">Login</button>
+            </form>
+            <p class="auth-hint">Demo: any username/password will log you in with the selected role.</p>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>

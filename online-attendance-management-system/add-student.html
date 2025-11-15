@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Student | Attendance</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="app-shell">
+<div class="app-container">
+    <aside class="sidebar">
+        <div class="brand">Attendance Pro</div>
+        <nav class="nav">
+            <a href="dashboard.html" class="nav-item">Dashboard</a>
+            <a href="add-student.html" class="nav-item active">Add Student</a>
+            <a href="mark-attendance.html" class="nav-item">Mark Attendance</a>
+            <a href="view-attendance.html" class="nav-item">View Attendance</a>
+        </nav>
+        <div class="nav-footer">
+            <a href="login.html" class="nav-item nav-logout">Logout</a>
+        </div>
+    </aside>
+    <main class="main">
+        <header class="topbar">
+            <h1>Add Student</h1>
+            <div class="user-info" id="addStudentUser">Welcome</div>
+        </header>
+        <section class="content">
+            <div class="card">
+                <h2>Student Details</h2>
+                <form id="addStudentForm" class="form">
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label class="form-label" for="studentId">Student ID</label>
+                            <input id="studentId" class="form-input" type="text" placeholder="e.g. STU001" required />
+                        </div>
+                        <div class="form-col">
+                            <label class="form-label" for="studentName">Name</label>
+                            <input id="studentName" class="form-input" type="text" placeholder="Full name" required />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label class="form-label" for="studentClass">Class</label>
+                            <input id="studentClass" class="form-input" type="text" placeholder="e.g. 10-A" required />
+                        </div>
+                        <div class="form-col">
+                            <label class="form-label" for="studentEmail">Email</label>
+                            <input id="studentEmail" class="form-input" type="email" placeholder="email@example.com" />
+                        </div>
+                    </div>
+                    <button type="submit" class="btn primary">Add Student</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2>Current Students</h2>
+                <table class="table" id="studentsTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>

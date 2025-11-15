@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Attendance | Attendance</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="app-shell">
+<div class="app-container">
+    <aside class="sidebar">
+        <div class="brand">Attendance Pro</div>
+        <nav class="nav">
+            <a href="dashboard.html" class="nav-item">Dashboard</a>
+            <a href="add-student.html" class="nav-item">Add Student</a>
+            <a href="mark-attendance.html" class="nav-item">Mark Attendance</a>
+            <a href="view-attendance.html" class="nav-item active">View Attendance</a>
+        </nav>
+        <div class="nav-footer">
+            <a href="login.html" class="nav-item nav-logout">Logout</a>
+        </div>
+    </aside>
+    <main class="main">
+        <header class="topbar">
+            <h1>View Attendance</h1>
+            <div class="user-info" id="viewAttendanceUser">Welcome</div>
+        </header>
+        <section class="content">
+            <div class="card">
+                <h2>Filters</h2>
+                <form id="filterForm" class="form form-grid">
+                    <div>
+                        <label class="form-label" for="filterDate">Date</label>
+                        <input id="filterDate" class="form-input" type="date" />
+                    </div>
+                    <div>
+                        <label class="form-label" for="filterStudent">Student</label>
+                        <input id="filterStudent" class="form-input" type="text" placeholder="Name or ID" />
+                    </div>
+                    <div>
+                        <label class="form-label" for="filterStatus">Status</label>
+                        <select id="filterStatus" class="form-input">
+                            <option value="">Any</option>
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn primary">Apply Filters</button>
+                        <button type="button" id="resetFilters" class="btn">Reset</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2>Attendance Records</h2>
+                <div class="table-actions">
+                    <button id="exportExcel" class="btn">Export Excel</button>
+                    <button id="exportPdf" class="btn">Export PDF</button>
+                </div>
+                <table class="table" id="recordsTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
