@@ -1,9 +1,0 @@
-{
-  "students": [
-    { "id": "STU001", "name": "Alice Johnson", "className": "10-A", "email": "alice@example.com" },
-    { "id": "STU002", "name": "Brian Lee", "className": "10-A", "email": "brian@example.com" },
-    { "id": "STU003", "name": "Chandni Patel", "className": "10-B", "email": "chandni@example.com" },
-    { "id": "STU004", "name": "David Kim", "className": "10-B", "email": "david@example.com" }
-  ],
-  "attendanceRecords": []
-}
