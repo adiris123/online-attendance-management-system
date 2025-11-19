@@ -3,21 +3,11 @@ const fs = require('fs');
 const path = require('path');
 
 // PostgreSQL connection configuration
-// Supports DATABASE_URL environment variable (used by Render) or individual connection params
+// Uses DATABASE_URL environment variable (required for Render deployment)
+// For local development, set DATABASE_URL or use: postgresql://user:password@localhost:5432/attendance
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: process.env.DATABASE_URL || `postgresql://${process.env.DB_USER || 'postgres'}:${process.env.DB_PASSWORD || 'postgres'}@${process.env.DB_HOST || 'localhost'}:${process.env.DB_PORT || 5432}/${process.env.DB_NAME || 'attendance'}`,
   ssl: process.env.DATABASE_URL ? { rejectUnauthorized: false } : false,
-  // Fallback to individual connection parameters if DATABASE_URL is not set
-  ...(process.env.DATABASE_URL ? {} : {
-    host: process.env.DB_HOST || 'localhost',
-    port: process.env.DB_PORT || 5432,
-    database: process.env.DB_NAME || 'attendance',
-    user: process.env.DB_USER || 'postgres',
-    password: process.env.DB_PASSWORD || 'postgres',
-  }),
-  max: 20, // Maximum number of clients in the pool
-  idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 2000,
 });
 
 // Test connection
@@ -37,7 +27,7 @@ async function initializeDatabase() {
   try {
     const schemaSql = fs.readFileSync(SCHEMA_FILE, 'utf8');
     
-    // Split schema into individual statements (PostgreSQL doesn't support multi-statement exec like SQLite)
+    // Split schema into individual statements (PostgreSQL requires separate statements)
     const statements = schemaSql
       .split(';')
       .map(s => s.trim())

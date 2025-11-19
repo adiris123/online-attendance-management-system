@@ -52,7 +52,7 @@ app.use('/api', apiLimiter);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // --- Helpers ---
-// Convert SQLite placeholders (?) to PostgreSQL placeholders ($1, $2, ...)
+// Convert query placeholders (?) to PostgreSQL placeholders ($1, $2, ...)
 function convertPlaceholders(sql, params) {
   let paramIndex = 1;
   const convertedSql = sql.replace(/\?/g, () => `$${paramIndex++}`);
